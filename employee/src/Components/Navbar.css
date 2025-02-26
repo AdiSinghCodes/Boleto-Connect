@@ -1,0 +1,333 @@
+/* Navbar Container */
+.navbar {
+  background-color: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 5%;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Logo */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo img {
+  height: 60px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.navbar-logo img:hover {
+  transform: scale(1.05);
+}
+
+/* Brand and Motivational Message */
+.navbar-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-brand h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #d35400;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.motivational-message {
+  font-size: 14px;
+  color: #4caf50;
+  font-style: italic;
+  margin-top: 5px;
+  text-align: center;
+  max-width: 500px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Menu Container */
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+/* Navigation Links */
+.navbar-links {
+  display: flex;
+  gap: 20px;
+}
+
+.navbar-links a {
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 6px 0;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.navbar-links a:hover {
+  color: #d35400;
+}
+
+.navbar-links a:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #d35400;
+  transition: width 0.3s ease;
+}
+
+.navbar-links a:hover:after {
+  width: 100%;
+}
+
+/* Auth Buttons */
+.navbar-auth {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.nav-button {
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.nav-button.login {
+  color: #d35400;
+  background-color: transparent;
+  border: 1px solid #d35400;
+}
+
+.nav-button.login:hover {
+  background-color: rgba(211, 84, 0, 0.1);
+}
+
+.nav-button.signup {
+  color: white;
+  background-color: #d35400;
+  border: 1px solid #d35400;
+}
+
+.nav-button.signup:hover {
+  background-color: #b33600;
+}
+
+/* User Menu */
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.welcome-text {
+  font-size: 15px;
+  font-weight: 500;
+  color: #333;
+}
+
+.nav-button.logout {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+}
+
+.nav-button.logout:hover {
+  background-color: #c0392b;
+}
+
+/* Hamburger Menu for Mobile */
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+}
+
+.hamburger {
+  width: 30px;
+  height: 20px;
+  position: relative;
+}
+
+.hamburger span {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: #d35400;
+  border-radius: 3px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+}
+
+.hamburger span:nth-child(1) {
+  top: 0px;
+}
+
+.hamburger span:nth-child(2) {
+  top: 8px;
+}
+
+.hamburger span:nth-child(3) {
+  top: 16px;
+}
+
+.hamburger.active span:nth-child(1) {
+  top: 8px;
+  transform: rotate(135deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+  left: -60px;
+}
+
+.hamburger.active span:nth-child(3) {
+  top: 8px;
+  transform: rotate(-135deg);
+}
+
+/* Media Queries for Responsive Design */
+@media screen and (max-width: 992px) {
+  .navbar-brand h1 {
+    font-size: 24px;
+  }
+  
+  .navbar-links {
+    gap: 15px;
+  }
+  
+  .navbar-links a {
+    font-size: 15px;
+  }
+  
+  .nav-button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    order: 3;
+  }
+  
+  .navbar-brand {
+    order: 2;
+  }
+  
+  .navbar-logo {
+    order: 1;
+  }
+  
+  .navbar-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: white;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+  }
+  
+  .navbar-menu.active {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+  
+  .navbar-links {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .navbar-links a {
+    padding: 10px 0;
+    width: 100%;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .navbar-auth {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    margin-top: 15px;
+  }
+  
+  .nav-button {
+    width: 100%;
+  }
+  
+  .user-menu {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .motivational-message {
+    max-width: 300px;
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .navbar-logo img {
+    height: 50px;
+  }
+  
+  .navbar-brand h1 {
+    font-size: 20px;
+  }
+  
+  .motivational-message {
+    max-width: 200px;
+    font-size: 12px;
+  }
+  
+  .navbar-container {
+    padding: 10px 4%;
+  }
+}

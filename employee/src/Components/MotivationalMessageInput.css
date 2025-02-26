@@ -1,0 +1,89 @@
+.motivational-message-container {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .motivational-message-container h3 {
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+  }
+  
+  .input-container {
+    position: relative;
+    margin-bottom: 10px;
+  }
+  
+  .motivational-message-container textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    resize: vertical;
+  }
+  
+  .char-count {
+    position: absolute;
+    bottom: 8px;
+    right: 10px;
+    color: #777;
+    font-size: 0.8rem;
+    margin: 0;
+  }
+  
+  .submit-message-btn {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+  }
+  
+  .submit-message-btn:hover {
+    background-color: #45a049;
+  }
+  
+  .message-note {
+    color: #777;
+    font-size: 0.8rem;
+    margin-top: 10px;
+  }
+  
+  .current-message-container {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px;
+  }
+  
+  .current-message {
+    margin-bottom: 15px;
+  }
+  
+  .time-remaining {
+    color: #777;
+    font-size: 0.9rem;
+  }
+  
+  .clear-message-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+  }
+  
+  .clear-message-btn:hover {
+    background-color: #d32f2f;
+  }
