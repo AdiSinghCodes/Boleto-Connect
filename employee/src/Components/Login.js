@@ -15,7 +15,7 @@ const Login = () => {
     setErrorMessage("");
 
     try {
-      const response = await fetch("http://localhost:5000/login", {
+      const response = await fetch("https://boleto-connect-backend.onrender.com/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
@@ -52,7 +52,7 @@ const Login = () => {
 
   const fetchUserSchedule = async (userId) => {
     try {
-      const scheduleResponse = await fetch(`http://localhost:5000/api/schedules/user/${userId}`);
+      const scheduleResponse = await fetch(`https://boleto-connect-backend.onrender.com/api/schedules/user/${userId}`);
       const scheduleData = await scheduleResponse.json();
 
       if (scheduleResponse.ok) {
