@@ -44,7 +44,7 @@ const CalendarPage = () => {
   useEffect(() => {
     const checkIfBoss = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/schedules/user-role/${user_id}`);
+        const response = await fetch(`https://boleto-connect-backend.onrender.com/api/schedules/user-role/${user_id}`);
         const data = await response.json();
         if (data.role === 'boss') {
           setIsBoss(true);
@@ -59,8 +59,7 @@ const CalendarPage = () => {
   }, [user_id]);
 
   const fetchEmployees = async () => {
-    try {
-      const response = await fetch(`http://localhost:5000/api/schedules/all-employees?boss_id=${user_id}`);
+    try {const response = await fetch(`https://boleto-connect-backend.onrender.com/api/schedules/all-employees?boss_id=${user_id}`);
       const data = await response.json();
       const uniqueEmployees = [...new Set(data.map(schedule => schedule.user_id))].map(id => {
         const employeeData = data.find(schedule => schedule.user_id === id);
@@ -87,7 +86,7 @@ const CalendarPage = () => {
     try {
       const targetUserId = selectedEmployee || user_id;
       const response = await fetch(
-        `http://localhost:5000/api/schedules/user/${targetUserId}?month=${months[selectedMonth]}`
+        `https://boleto-connect-backend.onrender.com/api/schedules/user/${targetUserId}?month=${months[selectedMonth]}`
       );
 
       if (!response.ok) {
@@ -172,16 +171,15 @@ const CalendarPage = () => {
       // Get schedule ID if editing
       let scheduleId;
       if (isBoss && selectedEmployee) {
-        const response = await fetch(
-          `http://localhost:5000/api/schedules/user/${selectedEmployee}?month=${months[selectedMonth]}`
-        );
+        const response = await fetch(`https://boleto-connect-backend.onrender.com/api/schedules/user/${selectedEmployee}?month=${months[selectedMonth]}`);
+
         const data = await response.json();
         scheduleId = data[0]?.id;
       }
 
       const endpoint = isBoss && selectedEmployee && scheduleId ? 
-        `http://localhost:5000/api/schedules/edit/${scheduleId}` :
-        "http://localhost:5000/api/schedules/submit";
+        `https://boleto-connect-backend.onrender.com/api/schedules/edit/${scheduleId}` :
+        "https://boleto-connect-backend.onrender.com/api/schedules/submit";
 
       const method = isBoss && selectedEmployee && scheduleId ? "PUT" : "POST";
 
