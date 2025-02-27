@@ -16,7 +16,7 @@ const Signup = () => {
     setMessage("");
 
     try {
-      const response = await fetch("http://localhost:5000/signup", {
+      const response = await fetch("https://boleto-connect-backend.onrender.com/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
